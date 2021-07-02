@@ -63,7 +63,7 @@ type poker struct {
 //	fmt.Println("flase")
 //	return false
 //}
-//是否是同花，返回最大的同花链表
+//检查输入的slice是否是顺子，返回最大顺子五张牌的相加值和true
 func shunzilist(tmplist []int) (int, bool) {
 	if len(tmplist) < 5 {
 		return 0, false
@@ -90,7 +90,7 @@ func shunzilist(tmplist []int) (int, bool) {
 	//遍历完，没有顺子则返回false
 	return 0, false
 }
-//先检查是否是同花，如果是同花，则判断同花中是否包含顺子
+//先检查是否是同花，如果是同花，则判断同花中是否包含顺子。返回同花顺的值。
 func tonghuashun(zongpai []poker) (int, bool) {
 	a, b := tonghua(zongpai)
 	if b == true {
@@ -104,6 +104,7 @@ func tonghuashun(zongpai []poker) (int, bool) {
 	}
 	return 0, false
 }
+//先判断是否同花，若是，再返回最大五张。
 func maxtonghua(zongpai []poker)([]int,bool){
 	tmplist,b:=tonghua(zongpai)
 	if b==true{
